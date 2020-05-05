@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -13,8 +14,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/css/**", "/hello1").permitAll()		
-//				.antMatchers("/hello/**").hasRole("USER")			
+				.antMatchers("/css/**", "/index").permitAll()		
+				.antMatchers("/user/**").hasRole("USER")			
 				.and()
 			.formLogin()
 				.loginPage("/login").failureUrl("/login-error");	
@@ -22,8 +23,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-			.inMemoryAuthentication()
-				.withUser("user").password("password").roles("USER");
+//		auth
+//			.inMemoryAuthentication()
+//				.withUser("user").password("password").roles("USER");
+		
+		 //inMemoryAuthentication 从内存中获取  
+        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("user").password(new BCryptPasswordEncoder().encode("password")).roles("USER");
+
 	}
 }
