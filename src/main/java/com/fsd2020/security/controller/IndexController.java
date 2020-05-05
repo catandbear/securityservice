@@ -1,0 +1,23 @@
+package com.fsd2020.security.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fsd2020.security.data.User;
+import com.fsd2020.security.data.mappers.UserMapper;
+
+@RestController
+public class IndexController {
+
+	@Autowired
+    private UserMapper userMapper;
+	
+	@GetMapping("hello")
+	public List<User> indexPage() {
+		List<User> users = userMapper.selectUser();
+		return users;
+	}
+}
