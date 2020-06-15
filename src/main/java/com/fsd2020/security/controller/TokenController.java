@@ -10,14 +10,19 @@ import com.fsd2020.security.data.User;
 import com.fsd2020.security.data.mappers.UserMapper;
 
 @RestController
-public class IndexController {
+public class TokenController {
 
 	@Autowired
     private UserMapper userMapper;
 	
-	@GetMapping("hello")
+	@GetMapping("querytoken")
 	public List<User> indexPage() {
 		List<User> users = userMapper.selectUser();
 		return users;
 	}
+	
+	@GetMapping("addtoken")
+    public String index(){
+        return "index";
+    }
 }

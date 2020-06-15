@@ -15,5 +15,5 @@ public interface UserMapper {
     //选择全部用户
     List<User> selectUser();
     //根据id选择用户
-    User selectUserById(int id);
+    User selectUserByName(String username);
 }
