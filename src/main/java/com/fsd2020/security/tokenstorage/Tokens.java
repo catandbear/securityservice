@@ -11,10 +11,10 @@ public class Tokens {
 	private static List<TokenEntity> userTokens;
 	
 	// token过期时间
-	private long expireMilliSeconds = 1000000;
+	private static long expireMilliSeconds = 1000000;
 
 	// 工具方法，判断用户是否已经登录
-	public TokenEntity getToken(String username) {
+	private static TokenEntity getToken(String username) {
 		for (TokenEntity tokenEntity : userTokens) {
 			if (username.equals(tokenEntity.getName())) {
 				return tokenEntity;
@@ -24,7 +24,7 @@ public class Tokens {
 	}
 	
 	// 验证方法
-	public Boolean validateToken(String username, String token) {
+	public static Boolean validateToken(String username, String token) {
 		
 		System.out.println("validate token -> ");
 		System.out.println("input: " + username + " , " + token);
