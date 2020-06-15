@@ -16,10 +16,4 @@ public interface UserMapper {
     List<User> selectUser();
     //根据id选择用户
     User selectUserById(int id);
-    //添加一个用户
-    int addUser(User user);
-    //修改一个用户
-    int updateUser(User user);
-    //根据id删除用户
-    int deleteUser(int id);
 }
