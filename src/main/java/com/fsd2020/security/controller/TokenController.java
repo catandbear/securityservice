@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fsd2020.security.data.User;
 import com.fsd2020.security.data.entity.TokenEntity;
 import com.fsd2020.security.data.mappers.UserMapper;
-import com.fsd2020.security.tokenstorage.Tokens;
 
 @RestController
 public class TokenController {
@@ -28,6 +27,7 @@ public class TokenController {
     public String index(String username, String token){
 		
 		TokenEntity entity = new TokenEntity(username, token, new Date().getTime());
+		
 		
         return "index";
     }
