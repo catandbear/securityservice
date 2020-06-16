@@ -31,6 +31,10 @@ public class TokenEntity {
 	}
 	public TokenEntity() {
 	}
+	@Override
+	public String toString() {
+		return "TokenEntity [uname=" + uname + ", token=" + token + ", createTimestamp=" + createTimestamp + "]";
+	}
 	
 	
 	
