@@ -22,6 +22,7 @@ public class Tokens {
 		TokenEntity tokenEntity = TokenUtil.getToken(username, userTokens);
 		
 		/*
+		 * 
 		 * Situation of Token is blank
 		 * Attention: This situation will not happens, but we should add a judge here
 		 * */
