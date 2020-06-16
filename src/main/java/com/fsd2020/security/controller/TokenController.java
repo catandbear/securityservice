@@ -26,8 +26,6 @@ public class TokenController {
 	@GetMapping("addtoken")
     public String index(String username, String token){
 		
-		TokenEntity entity = new TokenEntity(username, token, new Date().getTime());
-		
 		
         return "index";
     }
