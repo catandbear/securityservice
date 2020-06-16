@@ -1,4 +1,4 @@
-package com.fsd2020.security.tokenstorage;
+package com.fsd2020.security.utils;
 
 import java.util.List;
 import com.fsd2020.security.data.entity.TokenEntity;
@@ -9,15 +9,14 @@ public class Tokens {
 
 	private static List<TokenEntity> userTokens;
 	
-	// 验证方法
+	// validate
 	public static Boolean validateToken(String username, String token) {
-		
-		return TokenUtil.validateToken(username, token, userTokens);
+		return Tokens.validateToken(username, token);
 	}
 	
+	// add or modify
 	public static void addToken(TokenEntity tokenEntity) {
-		String uname = tokenEntity.getName();
-		TokenUtil.changeToken(uname, tokenEntity.getToken(), userTokens);
+		TokenUtil.changeToken(tokenEntity.getName(), tokenEntity.getToken(), userTokens);
 	}
 	
 }

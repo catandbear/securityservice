@@ -1,4 +1,4 @@
-package com.fsd2020.security.tokenstorage;
+package com.fsd2020.security.utils;
 
 import java.util.Date;
 import java.util.List;

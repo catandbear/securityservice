@@ -5,7 +5,15 @@ public class User {
 	private int id;
     private String user_name;
     private String password;
-    private String user_type;
+    private String confirmed;
+    
+    
+	public String getConfirmed() {
+		return confirmed;
+	}
+	public void setConfirmed(String confirmed) {
+		this.confirmed = confirmed;
+	}
 	public int getId() {
 		return id;
 	}
@@ -24,22 +32,19 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getUser_type() {
-		return user_type;
-	}
-	public void setUser_type(String user_type) {
-		this.user_type = user_type;
-	}
+	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", user_name=" + user_name + ", password=" + password + ", user_type=" + user_type
+		return "User [id=" + id + ", user_name=" + user_name + ", password=" + password + ", confirmed=" + confirmed
 				+ "]";
 	}
-	public User(int id, String user_name, String password, String user_type) {
+	
+	public User(int id, String user_name, String password, String confirmed) {
+		super();
 		this.id = id;
 		this.user_name = user_name;
 		this.password = password;
-		this.user_type = user_type;
+		this.confirmed = confirmed;
 	}
 	public User() {
 	}

@@ -1,31 +1,31 @@
 package com.fsd2020.security.controller;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fsd2020.security.data.User;
-import com.fsd2020.security.data.entity.TokenEntity;
-import com.fsd2020.security.data.mappers.UserMapper;
+import com.fsd2020.security.utils.Tokens;
+import com.fsd2020.security.utils.UserUtil;
 
 @RestController
 public class TokenController {
 
+	private UserUtil userUtil;
+	
 	@Autowired
-    private UserMapper userMapper;
+	private TokenController(UserUtil userUtil) {
+		this.userUtil = userUtil;
+	}
 	
 	@GetMapping("querytoken")
-	public List<User> indexPage() {
-		List<User> users = userMapper.selectUser();
-		return users;
+	public boolean query(String username, String token) {
+		boolean tokenStatus = Tokens.validateToken(username, token);
+		boolean userStatus = userUtil.validateUser(username);
+		return tokenStatus && userStatus;
 	}
 	
 	@GetMapping("addtoken")
-    public String index(String username, String token){
-		
+    public String addormodify(String username, String token){
 		
         return "index";
     }
