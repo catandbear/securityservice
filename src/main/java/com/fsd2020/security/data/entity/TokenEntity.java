@@ -1,12 +1,5 @@
 package com.fsd2020.security.data.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
 public class TokenEntity {
 
 	private String uname;
@@ -30,5 +23,15 @@ public class TokenEntity {
 	public void setCreateTimestamp(long createTimestamp) {
 		this.createTimestamp = createTimestamp;
 	}
+	public TokenEntity(String uname, String token, long createTimestamp) {
+		super();
+		this.uname = uname;
+		this.token = token;
+		this.createTimestamp = createTimestamp;
+	}
+	public TokenEntity() {
+	}
+	
+	
 	
 }
