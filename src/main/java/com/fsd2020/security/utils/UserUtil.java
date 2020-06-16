@@ -20,8 +20,9 @@ public class UserUtil {
 	
 	public boolean validateUser(String username){
 		User user = userMapper.selectUserByName(username);
-		logger.warn(user.toString());
+		
 		if (user != null) {
+			logger.warn(user.toString());
 			if("Y".equals(user.getConfirmed().trim())||"y".equals(user.getConfirmed().trim()))
 				return true;
 		}
