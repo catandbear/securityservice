@@ -11,7 +11,7 @@ public class Tokens {
 	
 	// validate
 	public static Boolean validateToken(String username, String token) {
-		return Tokens.validateToken(username, token);
+		return TokenUtil.validateToken(username, token, userTokens);
 	}
 	
 	// add or modify

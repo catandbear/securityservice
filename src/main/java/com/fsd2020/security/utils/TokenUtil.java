@@ -12,11 +12,14 @@ public class TokenUtil {
 	
 	// Judge if token list has this username
 	protected static TokenEntity getToken(String username, List<TokenEntity> allTokens) {
-		for (TokenEntity tokenEntity : allTokens) {
-			if (username.equals(tokenEntity.getName())) {
-				return tokenEntity;
+		if (allTokens!=null) {
+			for (TokenEntity tokenEntity : allTokens) {
+				if (username.equals(tokenEntity.getName())) {
+					return tokenEntity;
+				}
 			}
 		}
+		
 		return new TokenEntity("","",-1);
 	}
 	
